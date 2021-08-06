@@ -46,8 +46,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: HANDLE_SEARCH, payload: query });
   };
 
-  const handlePage = action => {
-    dispatch({ type: HANDLE_PAGE });
+  const handlePage = type => {
+    dispatch({ type: HANDLE_PAGE, payload: type });
   };
 
   const { query, page } = state;

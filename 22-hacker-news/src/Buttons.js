@@ -5,8 +5,13 @@ const Buttons = () => {
   const { isLoading, page, nbPages, handlePage } = useGlobalContext();
   return (
     <div className="btn-container">
-      <button disabled={isLoading}>prev</button>
-      <button disabled={isLoading}>next</button>
+      <button onClick={() => handlePage('prev')} disabled={isLoading}>
+        prev
+      </button>
+      {page + 1} of {nbPages}
+      <button onClick={() => handlePage('next')} disabled={isLoading}>
+        next
+      </button>
     </div>
   );
 };

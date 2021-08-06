@@ -32,6 +32,20 @@ const reducer = (state, action) => {
         page: 0,
       };
     }
+    case HANDLE_PAGE: {
+      let page;
+      if (action.payload === 'prev') {
+        page = state.page - 1;
+        page = page < 0 ? state.nbPages - 1 : page;
+      } else {
+        page = state.page + 1;
+        page = page > state.nbPages - 1 ? 0 : page;
+      }
+      return {
+        ...state,
+        page: page,
+      };
+    }
     default:
       throw new Error(`Invalid "${action.type} action type"`);
   }
